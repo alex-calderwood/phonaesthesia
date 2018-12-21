@@ -1,11 +1,14 @@
+# File written by adc2181
+
 import requests
 import numpy as np
-import urllib
 import cv2
 from os import path
+import os
 from progressbar import ProgressBar
 from multiprocessing import Process
 
+images_dir = './data/imagenet/images/'
 
 def get_word(wnid):
     url = 'http://www.image-net.org/api/text/wordnet.synset.getwords?wnid={}'
@@ -16,7 +19,14 @@ def get_word(wnid):
 
 
 def get_image(url, word):
-    filename = './data/imagenet/images/{}.jpg'.format(word)
+    base = images_dir + '{}{}.jpg'
+    filename = base.format(word, '')
+
+    i = 1
+    while filename in os.listdir(images_dir):
+        filename = base.format(word, '_' + str(i))
+        i += 1
+
     try:
         image = requests.get(url).content
     except Exception:
@@ -33,7 +43,7 @@ def downscale_image(filename):
     cv2.imwrite(new_filename, res)
 
 
-def download_imagenet(num=1000):
+def download_imagenet(num=10000):
     map_file = './data/imagenet/fall11_urls.txt'
     urls = open(map_file, 'rb').readlines()
     np.random.shuffle(urls)
@@ -53,7 +63,6 @@ def download_imagenet(num=1000):
         p.start()
 
         running.append(p)
-
 
 if __name__ == '__main__':
     download_imagenet()
