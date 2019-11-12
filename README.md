@@ -1,5 +1,3 @@
-# Written by adc2181
-
 # Phonaestesia
 
 What would it mean to generate images from the sound of speech, not from the semantics of the words themselves? 
