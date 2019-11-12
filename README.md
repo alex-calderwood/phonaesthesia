@@ -2,9 +2,10 @@
 
 # Phonaestesia
 
-What would it mean to generate images from the sound of speech, not from the semantics of the words themselves (I built this with a generative model called a Variational Auto Encoder).
+What would it mean to generate images from the sound of speech, not from the semantics of the words themselves? 
+I built this with a generative model called a Variational Auto Encoder, for Fundamentals of Speech Recognition (E6998), a graduate level speech recognition class at Columbia. 
 
-Project inspired by this incredible paper by Zach Leiberman: https://github.com/alex-calderwood/phonaesthesia/blob/master/papers/leiberman_paper.pdf
+The project was inspired by this incredible paper by Zach Leiberman: https://github.com/alex-calderwood/phonaesthesia/blob/master/papers/leiberman_paper.pdf
 
 I never really got it to generate anything interesting, but I think that was a finding in itself, and I want to return to it one day.
 
